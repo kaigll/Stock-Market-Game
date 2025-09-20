@@ -1,16 +1,24 @@
+#ifndef COMPANY_H
+#define COMPANY_H
 #include <string.h>
 
 class Company {
-    float m_volatility;
-    double m_shareValue;
-    
-
 public:
-    Company(char companyName[], float volatility, double shareValue);
+    Company(const char* companyName, const char* companyStockName, float volatility, float shareValue);
     
-    char *name;
+    const char *name;
+    const char *stockName;
+    float m_shareValue;
+    bool bankrupt = false;
+
     
     void setVolatility(float volatility);
     void changeShareValue(float weight);
-    void bankrupt();
+    float getShareValue();
+    
+private:
+    float m_volatility; // range 0-1
+    
 };
+
+#endif
